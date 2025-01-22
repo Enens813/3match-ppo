@@ -39,7 +39,7 @@ def main():
     
     # Take a screenshot and save it
     foldername = 'MPT/'
-    screenshot_filename = 'before_gamestart.png'
+    screenshot_filename = 'lv779.png'
     print("Taking screenshot...")
     take_screenshot(screenshot_filename, foldername)
     
