@@ -2,28 +2,7 @@ import subprocess
 import os
 from time import sleep
 import cv2
-
-# Function to execute ADB commands and get output
-def execute_adb_command(command):
-    result = subprocess.run(command, capture_output=True, text=True)
-    return result.stdout.strip()
-
-# Function to get the screen information
-def get_screen_info():
-    # ADB command to get screen dimensions
-    result = execute_adb_command(['adb', 'shell', 'wm', 'size'])
-    return result
-
-# Function to take a screenshot and save it as a file
-def take_screenshot(filename, foldername):
-    # ADB command to take a screenshot
-    execute_adb_command(['adb', 'shell', 'screencap', '-p', f'/sdcard/{filename}'])
-    
-    # Pull the screenshot file to your local machine
-    execute_adb_command(['adb', 'pull', f'/sdcard/{filename}', f'{foldername}{filename}'])
-    
-    # Clean up: remove the screenshot from BlueStacks after pulling it
-    execute_adb_command(['adb', 'shell', 'rm', f'/sdcard/{filename}'])
+from actions_and_commands import execute_adb_command, get_screen_info, take_screenshot
 
 # Main function
 def main():
@@ -39,7 +18,7 @@ def main():
     
     # Take a screenshot and save it
     foldername = 'MPT/'
-    screenshot_filename = 'lv779.png'
+    screenshot_filename = 'success.png'
     print("Taking screenshot...")
     take_screenshot(screenshot_filename, foldername)
     

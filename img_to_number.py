@@ -41,3 +41,6 @@ for r in result:
     
 print(len(result))
 print(len(result[0]))
+
+import sys
+print(sys.executable)
